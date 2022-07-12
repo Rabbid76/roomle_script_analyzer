@@ -1,8 +1,10 @@
 {
     "scripts": {
         "build": "tsc -p .",
-        "start:test": "node built/tools/scriptAnalyzerTest.js",
         "start": "node built/tools/scriptAnalyzer.js",
+        "start:js": "node built/tools/scriptAnalyzerJs.js",
+        "start:test": "node built/tools/scriptAnalyzerTest.js",
+        "start:js:test": "node built/tools/scriptAnalyzerTestJs.js",
         "dev": "nodemon source/scriptAnalyzer.ts"
     },
     "devDependencies": {
@@ -10,6 +12,6 @@
         "typescript": "^4.7.4",
         "ts-node": "^10.8.1",
         "@types/fs-extra": "^9.0.13",
-        "roomle-core-hsc": "https://www.roomle.com/t/external/core/189/hsc.tar.gz"
+        "roomle-core-hsc": "https://www.roomle.com/t/external/core/194/hsc.tar.gz"
     }
 }
