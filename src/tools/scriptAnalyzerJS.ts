@@ -3,7 +3,7 @@ import * as fs from 'fs';
 
 const loadToolsCore = async () => {
     // @ts-ignore
-    const ToolsCoreCore = await require("../../node_modules/roomle-core-hsc/wasm/RoomleToolsCore.js");    
+    const ToolsCoreCore = await require("../../node_modules/roomle-core-hsc/RoomleToolsCoreJs.js");    
     const toolsCoreModule = await ToolsCoreCore();
     toolsCoreModule.setContext({
         isReady: () => {},
