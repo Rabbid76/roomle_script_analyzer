@@ -7,7 +7,7 @@ const loadToolsCore = async () => {
     toolsCoreModule.setContext({
         isReady: () => {},
         throw: (what : string) => console.log("exception: " + what),
-        log: (message : string) => console.log(message),
+        log: (message : string) => console.log(message + "\n"),
     })
     let toolsCore: ToolsCoreInterface = new toolsCoreModule.ToolsCore()
     return toolsCore;

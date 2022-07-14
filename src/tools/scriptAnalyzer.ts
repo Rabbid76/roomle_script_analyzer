@@ -8,7 +8,7 @@ const loadToolsCore = async () => {
     toolsCoreModule.setContext({
         isReady: () => {},
         throw: (what : string) => console.log("exception: " + what),
-        log: (message : string) => console.log(message),
+        log: (message : string) => console.log(message + "\n"),
     })
     let toolsCore: ToolsCoreInterface = new toolsCoreModule.ToolsCore()
     return toolsCore;
@@ -21,5 +21,5 @@ const loadComponentAndAnalyze = async (componentFilepath: string) => {
 }
 
 const componentFilepath: string = process.argv[2]
-console.log("analyze: " + componentFilepath)
+console.log("analyze: " + componentFilepath + "\n")
 loadComponentAndAnalyze(componentFilepath)
