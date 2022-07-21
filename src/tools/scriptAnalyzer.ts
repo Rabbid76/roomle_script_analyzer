@@ -1,23 +1,18 @@
-import ToolsCoreInterface from '../interface/toolsCore'
+import {ToolsCore, ToolsCoreCallback} from './toolsCore'
 import * as fs from 'fs';
 
-const loadToolsCore = async () => {
-    // @ts-ignore
-    const ToolsCoreCore = await require("../../node_modules/roomle-core-hsc/wasm/RoomleToolsCore.js");    
-    const toolsCoreModule = await ToolsCoreCore();
-    toolsCoreModule.setContext({
-        isReady: () => {},
-        throw: (what : string) => console.log("exception: " + what),
-        log: (message : string) => console.log(message + "\n"),
-    })
-    let toolsCore: ToolsCoreInterface = new toolsCoreModule.ToolsCore()
-    return toolsCore;
+const contextCallback : ToolsCoreCallback = {
+    isReady: () => {},
+    throw: (what : string) => console.log("exception: " + what),
+    log: (_ : string) => {},
+    error: (line: number, column: number, message : string, source: string) => 
+        console.log(source + ":" + line + ":" + column + ":" + message + "\n"),
 }
 
 const loadComponentAndAnalyze = async (componentFilepath: string) => {
-    const toolsCore: ToolsCoreInterface = await loadToolsCore()
-    const serializedComponentDefinition : string = await fs.promises.readFile(componentFilepath, 'utf8');
-    toolsCore.analyzeComponent(serializedComponentDefinition, componentFilepath);
+    const toolsCore: ToolsCore = await ToolsCore.newToolsCore(contextCallback, true)
+    const serializedComponentDefinition : string = await fs.promises.readFile(componentFilepath, 'utf8')
+    await toolsCore.analyzeComponent(serializedComponentDefinition, componentFilepath);
 }
 
 const componentFilepath: string = process.argv[2]

@@ -1,16 +1,11 @@
-import ToolsCoreInterface from '../interface/toolsCore'
+import {ToolsCore, ToolsCoreCallback} from './toolsCore'
 
-const loadToolsCore = async () => {
-    // @ts-ignore
-    const ToolsCoreCore = await require("../../node_modules/roomle-core-hsc/wasm/RoomleToolsCore.js");    
-    const toolsCoreModule = await ToolsCoreCore();
-    toolsCoreModule.setContext({
-        isReady: () => {},
-        throw: (what : string) => console.log("exception: " + what),
-        log: (message : string) => console.log(message + "\n"),
-    })
-    let toolsCore: ToolsCoreInterface = new toolsCoreModule.ToolsCore()
-    return toolsCore;
+const contextCallback : ToolsCoreCallback = {
+    isReady: () => {},
+    throw: (what : string) => console.log("exception: " + what),
+    log: (_ : string) => {},
+    error: (line: number, column: number, message : string, source: string) => 
+        console.log(source + ":" + line + ":" + column + ":" + message + "\n"),
 }
 
 const componentDefinitionNoError: string = `
@@ -26,7 +21,7 @@ const componentDefinitionWithError: string = `
 }`
 
 const analyzeTestComponents = async () => {
-    const toolsCore: ToolsCoreInterface = await loadToolsCore();
+    const toolsCore: ToolsCore = await ToolsCore.newToolsCore(contextCallback, true)
     console.log("Analyze component with no error\n")
     toolsCore.analyzeComponent(componentDefinitionNoError, "");
     console.log("\nAnalyze component with 1 error\n")
