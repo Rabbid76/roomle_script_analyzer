@@ -5,7 +5,7 @@ const contextCallback : ToolsCoreCallback = {
     throw: (what : string) => console.log("exception: " + what),
     log: (_ : string) => {},
     error: (line: number, column: number, message : string, source: string) => 
-        console.log(source + ":" + line + ":" + column + ":" + message + "\n"),
+        console.log(source + ":" + line + ":" + column + ": error: " + message + "\n"),
 }
 
 const componentDefinitionNoError: string = `
