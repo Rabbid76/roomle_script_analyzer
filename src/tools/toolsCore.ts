@@ -1,4 +1,4 @@
-import {ToolsCoreContextCallback, ToolsCoreInterface} from '../interface/toolsCoreInterface'
+import {ToolsCoreContextCallback, ToolsCoreInterface} from '../../node_modules/roomle-core-hsc/src/toolsCoreInterface'
 
 export type ToolsCoreCallback = ToolsCoreContextCallback
 

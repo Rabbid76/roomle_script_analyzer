@@ -1,5 +1,5 @@
 import {ToolsCore, ToolsCoreCallback} from '../../src/tools/toolsCore'
-import {MessageObject} from '../../src/interface/toolsCoreInterface'
+import {MessageObject} from '../../node_modules/roomle-core-hsc/src/toolsCoreInterface'
 
 const contextCallback : ToolsCoreCallback = {
     isReady: () => {},
