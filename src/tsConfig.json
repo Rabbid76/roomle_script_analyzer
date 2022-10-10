@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+      "module": "nodenext",
+      "noImplicitAny": true,
+      "removeComments": true,
+      "preserveConstEnums": true,
+      "sourceMap": true,
+      "outDir": "../built"
+    },
+    "paths": {
+        "@/*": [
+          "src/*"
+        ]
+      },
+    "include": [
+        "../src/**/*.ts",
+        "../tests/**/*.ts" ],
+      "exclude": [
+        "node_modules"
+      ]
+}

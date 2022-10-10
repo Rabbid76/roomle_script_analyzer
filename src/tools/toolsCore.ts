@@ -1,4 +1,4 @@
-import {ToolsCoreInterface, ToolsCoreContextCallback} from '../interface/toolsCoreInterface'
+import {ToolsCoreContextCallback, ToolsCoreInterface} from '../interface/toolsCoreInterface'
 
 export type ToolsCoreCallback = ToolsCoreContextCallback
 
@@ -15,13 +15,13 @@ export class ToolsCore {
     private async init() : Promise<void> {
         if (!this._toolsCoreInstance) {
             const module = this._useWasm
-                ? "../../node_modules/roomle-core-hsc/wasm/RoomleToolsCore.js"
-                : "../../node_modules/roomle-core-hsc/RoomleToolsCoreJs.js";
+                ? "../../../node_modules/roomle-core-hsc/wasm/RoomleToolsCore.js"
+                : "../../../node_modules/roomle-core-hsc/RoomleToolsCoreJs.js";
             // @ts-ignore
             const ToolsCoreCore = await require(module);   
             const toolsCoreModule = await ToolsCoreCore()
             toolsCoreModule.setContext(this._context)
-            this._toolsCoreInstance = new toolsCoreModule.ToolsCore()
+            this._toolsCoreInstance = new toolsCoreModule.ToolsCoreInterface()
         }
     }
 
