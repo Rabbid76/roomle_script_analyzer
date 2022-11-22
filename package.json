@@ -11,6 +11,6 @@
         "typescript": "^4.7.4",
         "ts-node": "^10.8.1",
         "@types/fs-extra": "^9.0.13",
-        "roomle-core-hsc": "https://www.roomle.com/t/external/core/226/hsc.tar.gz"
+        "roomle-core-hsc": "https://www.roomle.com/t/external/core/233/hsc.tar.gz"
     }
 }
