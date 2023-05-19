@@ -1,5 +1,5 @@
-import {ToolsCore, ToolsCoreCallback} from './toolsCore'
-import {MessageObject} from '../../node_modules/roomle-core-hsc/src/toolsCoreInterface'
+import {ToolsCore, ToolsCoreCallback} from 'roomle-core-hsc/src/embind/toolsCore'
+import {MessageObject} from 'roomle-core-hsc/src/embind/toolsCoreInterface'
 import * as fs from 'fs';
 
 const contextCallback : ToolsCoreCallback = {

@@ -1,5 +1,7 @@
 {
     "scripts": {
+        "install:ncu": "npm install -g npm-check-updates",
+        "update:modules": "ncu -u && npm update && npm i",
         "build": "tsc -p ./src && tsc -p ./tests",
         "parse": "node built/src/tools/scriptAnalyzer.js wasm",
         "parse:js": "node built/src/tools/scriptAnalyzer.js js",
@@ -7,11 +9,11 @@
         "dev": "nodemon source/scriptAnalyzer.ts"
     },
     "devDependencies": {
-        "nodemon": "^2.0.18",
-        "typescript": "^4.7.4",
-        "ts-node": "^10.8.1",
-        "@types/fs-extra": "^9.0.13",
-        "roomle-core-hsc": "https://www.roomle.com/t/external/core/snap/307/hsc.tar.gz"
+        "nodemon": "^2.0.22",
+        "typescript": "^5.0.4",
+        "ts-node": "^10.9.1",
+        "@types/fs-extra": "^11.0.1",
+        "roomle-core-hsc": "https://www.roomle.com/t/external/core/snap/315/hsc.tar.gz"
     },
     "volta": {
         "node": "17.0.0"
