@@ -9,11 +9,11 @@
         "dev": "nodemon source/scriptAnalyzer.ts"
     },
     "devDependencies": {
-        "nodemon": "^2.0.22",
-        "typescript": "^5.0.4",
+        "nodemon": "^3.0.1",
+        "typescript": "^5.1.6",
         "ts-node": "^10.9.1",
         "@types/fs-extra": "^11.0.1",
-        "roomle-core-hsc": "https://www.roomle.com/t/external/core/snap/315/hsc.tar.gz"
+        "roomle-core-hsc": "https://www.roomle.com/t/external/core/300/hsc.tar.gz"
     },
     "volta": {
         "node": "17.0.0"

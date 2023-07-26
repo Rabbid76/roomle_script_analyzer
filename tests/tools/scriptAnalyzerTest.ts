@@ -1,4 +1,4 @@
-import {ToolsCore, ToolsCoreCallback} from 'roomle-core-hsc/src/embind/toolsCore'
+import {ToolsCoreInstance, ToolsCoreCallback} from 'roomle-core-hsc/src/embind/toolsCore'
 import {MessageObject} from 'roomle-core-hsc/src/embind/toolsCoreInterface'
 
 const contextCallback : ToolsCoreCallback = {
@@ -29,7 +29,7 @@ const componentDefinitionWithWarning: string = `
 }`
 
 const analyzeTestComponents = async () => {
-    const toolsCore: ToolsCore = await ToolsCore.newToolsCore(contextCallback, true)
+    const toolsCore: ToolsCoreInstance = await ToolsCoreInstance.newToolsCore(contextCallback, true, true)
     console.log("Analyze component with no error (WASM)\n")
     toolsCore.analyzeComponent(componentDefinitionNoError, "");
     console.log("\nAnalyze component with 1 error (WASM)\n")
@@ -38,7 +38,7 @@ const analyzeTestComponents = async () => {
     toolsCore.analyzeComponent(componentDefinitionWithWarning, "");
     console.log("\n")
 
-    const toolsCoreJS: ToolsCore = await ToolsCore.newToolsCore(contextCallback, false)
+    const toolsCoreJS: ToolsCoreInstance = await ToolsCoreInstance.newToolsCore(contextCallback, false, false)
     console.log("Analyze component with no error (ASM.js)\n")
     toolsCoreJS.analyzeComponent(componentDefinitionNoError, "");
     console.log("\nAnalyze component with 1 error (ASM.js)\n")

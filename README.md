@@ -21,25 +21,11 @@ npm run build
 Run test:
 
 ```lang-none
-npm run start:test
+npm run test:parse
 ```
 
 Analyze Component JSON
 
 ```lang-none
-npm run start <my_path/my_component.json>
-```
-
-### JavaScript Assembly
-
-Run test:
-
-```lang-none
-npm run start:js:test
-```
-
-Analyze Component JSON
-
-```lang-none
-npm run start:js <my_path/my_component.json>
+npm run dev <my_path/my_component.json>
 ```

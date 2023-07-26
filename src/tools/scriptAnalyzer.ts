@@ -1,4 +1,4 @@
-import {ToolsCore, ToolsCoreCallback} from 'roomle-core-hsc/src/embind/toolsCore'
+import {ToolsCoreInstance, ToolsCoreCallback} from 'roomle-core-hsc/src/embind/toolsCore'
 import {MessageObject} from 'roomle-core-hsc/src/embind/toolsCoreInterface'
 import * as fs from 'fs';
 
@@ -12,7 +12,7 @@ const contextCallback : ToolsCoreCallback = {
 }
 
 const loadComponentAndAnalyze = async (componentFilepath: string, useWasm: boolean) => {
-    const toolsCore: ToolsCore = await ToolsCore.newToolsCore(contextCallback, !useWasm)
+    const toolsCore: ToolsCoreInstance = await ToolsCoreInstance.newToolsCore(contextCallback, !useWasm, false)
     const serializedComponentDefinition : string = await fs.promises.readFile(componentFilepath, 'utf8')
     await toolsCore.analyzeComponent(serializedComponentDefinition, componentFilepath);
 }
